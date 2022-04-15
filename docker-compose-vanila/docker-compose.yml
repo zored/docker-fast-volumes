@@ -1,0 +1,10 @@
+version: "3.2"
+services:
+  rsyslog:
+    image: alpine
+    command:
+      [
+        "sh",
+        "-c",
+        "time dd if=/dev/zero of=test.dat bs=1024 count=1000000 && rm test.dat"
+      ]

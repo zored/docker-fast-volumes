@@ -1,0 +1,17 @@
+version: "3.2"
+services:
+  rsyslog:
+    image: alpine
+    volumes:
+      - type: volume
+        source: example
+        target: /app/
+        volume:
+          nocopy: true
+    command: [ "/app/run.sh", "local" ]
+volumes:
+  example:
+    driver_opts:
+      type: "nfs"
+      o: "addr=host.docker.internal,rw,nolock,hard,nointr,nfsvers=3,actimeo=2"
+      device: ":/System/Volumes/Data/$PWD"
