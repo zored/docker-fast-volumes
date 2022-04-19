@@ -1,0 +1,16 @@
+version: "3.2"
+services:
+  rsyslog:
+    image: alpine
+    volumes:
+      - type: bind
+        source: .
+        target: /app/
+        volume:
+          nocopy: true
+    command:
+      [
+        "sh",
+        "-c",
+        "time dd if=/dev/zero of=/app/test.dat bs=1024 count=1000000"
+      ]
