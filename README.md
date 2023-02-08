@@ -8,6 +8,7 @@ Currently bottleneck is in volumes.
 - Regular volumes. `./run.sh volume remote`.
   - Very slow.
   - With `virtiofs` a bit faster.
+  - Volume parameters like `cache` only increase sync time.
 - NFS. `./run.sh nfs remote`. 3 times slower. Close to real time file sync.
 
 ## Soultions
